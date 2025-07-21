@@ -1,0 +1,23 @@
+/* Add application styles & imports to this file! */
+@import 'bootstrap/dist/css/bootstrap.min.css';
+
+div.card-header {
+  font-size: large;
+}
+
+div.card {
+  margin-top: 10px;
+}
+
+.table {
+  background-color: #abb2b9;
+  margin-top: 10px;
+}
+
+.table td,
+.table th {
+  padding-left: 20px;
+}
+a {
+  text-decoration: none;
+}

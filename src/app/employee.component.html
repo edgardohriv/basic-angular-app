@@ -1,0 +1,46 @@
+<div class="card">
+<div class="card-header">
+  {{pageTitle}}
+</div>
+
+<div class="container">
+  <div class="row justify-content-between">
+    <div class="col-3">
+      <input type='text'
+      [(ngModel)]='listFilter'
+      placeholder="filter input" />
+    </div>
+  </div>
+</div>
+
+<div class="card-body">
+  <div class="table-responsive">
+    <table class="table mb-0"
+           *ngIf="employeesSelected$  | async as employees">
+      <thead>
+        <tr>
+          <th>Id</th>
+          <th>Name</th>
+          <th>Address</th>
+          <th>Age</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let employee of employees">
+          <td [ngClass]="{ 'bg-success': employee?.idEqualsFilter }" class='text-end'>{{ employee.id }}</td>
+          <td [ngClass]="{ 'bg-success': employee?.nameContainsFilter }">{{ employee.name }}</td>
+          <td [ngClass]="{ 'bg-success': employee?.addressContainsFilter }">{{ employee.address }}</td>
+          <td [ngClass]="{ 'bg-success': employee?.ageEqualsFilter }" class='text-end'>{{ employee.age }}</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+</div>
+</div>
+
+<div class="alert alert-danger"
+   *ngIf="errorMessage">
+{{ errorMessage }}
+</div>
+
